@@ -1,4 +1,4 @@
-# SLIATE Tutor Portal — Static Website
+# Tutor Portal — Static Website
 
 A multi-page static website (HTML, CSS, JavaScript — no build step, no framework, no backend) for a
 tutor/lecture portal: home, about, subjects, tutors, lectures, contact, login/registration, and a
