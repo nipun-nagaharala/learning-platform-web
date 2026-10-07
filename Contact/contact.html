@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinansa Contact Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c0392b;
+      --bg-light: #f9f9f9;
+      --text-dark: #222;
+      --text-gray: #555;
+      --border: #ddd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: var(--text-dark);
+    }
+
+    h1 span {
+      color: var(--primary);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-grid input,
+    .form-grid textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+
+    .form-grid textarea {
+      grid-column: span 2;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 14px;
+      font-size: 1rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a93226;
+    }
+
+    .info-box {
+      margin-top: 40px;
+      background-color: #fff8f6;
+      padding: 20px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+    }
+
+    .info-box p {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      font-size: 1.05rem;
+      color: var(--text-gray);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>සම්බන්ධ වන්න <span>Dinansa</span> සමඟ</h1>
+
+    <form class="form-grid">
+      <input type="text" placeholder="ඔබගේ නම" required>
+      <input type="email" placeholder="ඊමේල් ලිපිනය" required>
+      <input type="text" placeholder="දුරකථන අංකය" required>
+      <input type="text" placeholder="විෂයය">
+      <textarea placeholder="ඔබගේ පණිවිඩය..." required></textarea>
+      <button type="submit">යවන්න</button>
+    </form>
+
+    <div class="info-box">
+      <p>📍 ලිපිනය: දිනන්සා උසස් අධ්‍යාපන ආයතනය, ගම්පොළ</p>
+      <p>📞 දුරකථන: +94 81 222 2222</p>
+      <p>📧 ඊමේල්: info@dinansa.lk</p>
+      <p>🕘 කාර්ය මය වේලාවන්: සඳුදා - සිකුරාදා, උදේ 8 සිට සවස 5 දක්වා</p>
+    </div>
+  </div>
+
+</body>
+</html>

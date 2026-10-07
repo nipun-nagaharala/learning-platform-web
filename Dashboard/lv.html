@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Exam Marks</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .filter-section {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-section input,
+    .filter-section select,
+    .filter-section button {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #f4f4f4;
+    }
+  </style>
+  <script>
+    function filterTable() {
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const subject = document.getElementById("subjectFilter").value;
+      const rows = document.querySelectorAll("tbody tr");
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const matchesSearch = cells[1].textContent.toLowerCase().includes(search);
+        const matchesSubject = subject === "" || cells[2].textContent === subject;
+
+        if (matchesSearch && matchesSubject) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      });
+    }
+
+    function exportToCSV() {
+      let csv = 'Student ID,Name,Subject,Marks,Grade\n';
+      const rows = document.querySelectorAll("tbody tr");
+
+      rows.forEach(row => {
+        if (row.style.display !== "none") {
+          const cols = row.querySelectorAll("td");
+          const rowData = Array.from(cols).map(td => td.textContent);
+          csv += rowData.join(',') + '\n';
+        }
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.setAttribute('hidden', '');
+      a.setAttribute('href', url);
+      a.setAttribute('download', 'student_exam_marks.csv');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Admin Panel</h2>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="students.html" class="active">Student Exam Marks</a></li>
+        <li><a href="attendance.html">Show Attendance</a></li>
+        <li><a href="payment.html">Make Payment</a></li>
+        <li><a href="users.html">Manage Users</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Student Exam Marks</h1>
+        <p>View and manage student marks.</p>
+      </header>
+
+      <section class="filter-section">
+        <input type="text" id="searchInput" placeholder="Search by student name" oninput="filterTable()">
+        <select id="subjectFilter" onchange="filterTable()">
+          <option value="">All Subjects</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Science">Science</option>
+          <option value="English">English</option>
+        </select>
+        <button onclick="exportToCSV()">Export CSV</button>
+      </section>
+
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1001</td>
+              <td>Alice Johnson</td>
+              <td>Mathematics</td>
+              <td>88</td>
+              <td>A</td>
+            </tr>
+            <tr>
+              <td>1002</td>
+              <td>Bob Smith</td>
+              <td>Science</td>
+              <td>76</td>
+              <td>B</td>
+            </tr>
+            <tr>
+              <td>1003</td>
+              <td>Clara Lee</td>
+              <td>English</td>
+              <td>92</td>
+              <td>A+</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

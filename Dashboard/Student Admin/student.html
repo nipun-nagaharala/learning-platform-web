@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinansa Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background-color: #f5f7fa;
+  }
+
+  .container {
+      display: flex;
+      height: auto;
+    }
+
+    .sidebar {
+      width: 300px;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 4px solid #1a252f;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #34495e;
+      padding-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar ul li {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #34495e;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar ul li::before {
+      content: "\25A0";
+      color: #ecf0f1;
+      font-size: 12px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      width: 100%;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #1abc9c;
+    }
+
+  /*
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 320px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: ;
+
+  }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+  }
+
+  .sidebar ul li {
+    margin: 15px 0;
+
+  }
+
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  */
+
+  .main-content {
+    flex: 1;
+    padding: 30px;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  header h1 {
+    font-size: 32px;
+    color: #333;
+  }
+
+  .cards {
+    display: flex;
+    gap: 20px;
+  }
+
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  .card p {
+    font-size: 24px;
+    color: #2c3e50;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  table thead {
+    background-color: #f5f5f5;
+  }
+
+  table th,
+  table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  table th {
+    font-weight: bold;
+    color: #333;
+  }
+
+  table tr:hover {
+    background-color: #f0f8ff;
+  }
+
+  /* Responsive for smaller screens */
+  @media screen and (max-width: 768px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      white-space: pre-wrap;
+    }
+
+    td:before {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-weight: bold;
+      color: #555;
+      content: attr(data-label);
+    }
+  }
+
+  .chart-section {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .earnings-summary {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .total-box {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #ecf0f1;
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .small-chart {
+    max-width: 100%;
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+
+  th {
+    background: #f4f4f4;
+  }
+
+  .paid {
+    background-color: #c8e6c9;
+    /* light green */
+  }
+
+  .unpaid {
+    background-color: #ffcdd2;
+    /* light red */
+  }
+
+  /*
+  button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  */
+
+
+  /*Chart.js Sample*/
+  .student-analytics-chart-wrapper {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 30px;
+  }
+
+  .student-analytics-chart-wrapper .student-analytics-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .student-analytics-chart-wrapper .student-analytics-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .student-analytics-chart-wrapper #studentLineChart {
+    width: 100% !important;
+    height: 450px !important;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Admin Panel</h2>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Students</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="../../Dashboard/Student Admin/teacher.html">Teacher</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Dashboard : Students</h1>
+        <p>Welcome, Admin!</p>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Total Students</h3>
+          <p>220 </p>
+        </div>
+        <div class="card">
+          <h3>New Registrations</h3>
+          <p>34</p>
+        </div>
+        <div class="card">
+          <h3>This Month Resignatios</h3>
+          <p>20</p>
+        </div>
+      </section>
+
+      <br><br>
+
+      <div class="student-analytics-chart-wrapper">
+        <div class="student-analytics-title">Monthly Student Analytics (Jan - Jul)</div>
+        <div class="student-analytics-container">
+          <canvas id="studentLineChart"></canvas>
+        </div>
+      </div>
+
+      <script>
+        const studentCtx = document.getElementById('studentLineChart').getContext('2d');
+
+        const studentData = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+          datasets: [
+            {
+              label: 'Total Students',
+              data: [150, 160, 170, 180, 195, 206, 220],
+              borderColor: '#007bff',
+              backgroundColor: '#007bff',
+              fill: false,
+              tension: 0.4
+            },
+            {
+              label: 'Total Attendance',
+              data: [140, 150, 158, 168, 180, 193, 205],
+              borderColor: '#28a745',
+              backgroundColor: '#28a745',
+              fill: false,
+              tension: 0.4
+            },
+            {
+              label: 'New Registrations',
+              data: [10, 15, 12, 14, 18, 12, 34],
+              borderColor: '#fd7e14',
+              backgroundColor: '#fd7e14',
+              fill: false,
+              tension: 0.4
+            },
+            {
+              label: 'Resignations',
+              data: [2, 5, 3, 4, 5, 1, 20],
+              borderColor: '#dc3545',
+              backgroundColor: '#dc3545',
+              fill: false,
+              tension: 0.4
+            }
+          ]
+        };
+
+        const studentOptions = {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top'
+            },
+            title: {
+              display: true,
+              text: 'Student Summary (Jan - July)'
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        };
+
+        new Chart(studentCtx, {
+          type: 'line',
+          data: studentData,
+          options: studentOptions
+        });
+      </script>
+
+      <br><br>
+
+      <!--
+      <section class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1001</td>
+              <td>Alice Johnson</td>
+              <td>Mathematics</td>
+              <td>88</td>
+              <td>A</td>
+            </tr>
+            <tr>
+              <td>1002</td>
+              <td>Bob Smith</td>
+              <td>Science</td>
+              <td>76</td>
+              <td>B</td>
+            </tr>
+            <tr>
+              <td>1003</td>
+              <td>Clara Lee</td>
+              <td>English</td>
+              <td>92</td>
+              <td>A+</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      -->
+
+      <br><br>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:10%;">ID</th>
+            <th style="width:20%;">Name</th>
+            <th style="width:40%;">Classes</th>
+            <th style="width:20%;">Teacher</th>
+            <th style="width:10%;">Payment</th>
+            <th style="width:20%;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0001</td>
+            <td>S.K.L. Bandara</td>
+            <td>Maths Grade 8 Hall Class (Sinhala)<br><br>Science Grade 8 Hall Class (English)</td>
+            <td>M.R.Kasun Hewage<br><br>M.R.Jaliya Kumara</td>
+            <td>
+              <p class="paid">Done</p><br>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td>
+              <button>View</button>
+              <button>Update</button>
+              <button>Delete</button>
+              <br><br>
+              <button>View</button>
+              <button>Update</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>0002</td>
+            <td>A.K. Silva</td>
+            <td>Science Grade 8 Hall Class (Sinhala)</td>
+            <td>M.R.Kasun Hewage</td>
+            <td>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button></td>
+          </tr>
+
+          <tr>
+            <td>0003</td>
+            <td>P.D. Perera</td>
+            <td>Maths Grade 8 Hall Class (English)<br><br>History Grade 8 Hall Class (Sinhala)</td>
+            <td>M.R.Jaliya Kumara<br><br>S.M.Liyanage</td>
+            <td>
+              <p class="paid">Done</p><br>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0004</td>
+            <td>K.G. Fernando</td>
+            <td>Maths Grade 8 Hall Class (Sinhala)<br><br>Science Grade 8 Hall Class (English)<br><br>Geography Grade 8
+              Hall Class (English)</td>
+            <td>N.R.N.L. Bandara<br><br>M.R.Kasun Hewage<br><br>P.T.Samarakoon</td>
+            <td>
+              <p class="paid">Done</p><br>
+              <p class="paid">Done</p><br>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button><br><br><button>View</button> <button>Update</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0005</td>
+            <td>S.R. Gunawardena</td>
+            <td>English Grade 8 Hall Class (Sinhala)</td>
+            <td>T.M.Jayawardena</td>
+            <td>
+              <p class="paid">Done</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button></td>
+          </tr>
+
+          <tr>
+            <td>0006</td>
+            <td>M.I. Wijesinghe</td>
+            <td>Science Grade 8 Hall Class (Sinhala)<br><br>Maths Grade 8 Hall Class (English)</td>
+            <td>M.R.Kasun Hewage<br><br>N.R.N.L. Bandara</td>
+            <td>
+              <p class="unpaid">UnPaid</p><br>
+              <p class="paid">Done</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0007</td>
+            <td>T.H. Dissanayake</td>
+            <td>Maths Grade 8 Hall Class (Sinhala)<br><br>Science Grade 8 Hall Class (English)<br><br>Geography Grade 8
+              Hall Class (Sinhala)<br><br>English Grade 8 Hall Class (Sinhala)</td>
+            <td>N.R.N.L. Bandara<br><br>M.R.Kasun Hewage<br><br>P.T.Samarakoon<br><br>T.M.Jayawardena</td>
+            <td>
+              <p class="unpaid">UnPaid</p><br>
+              <p class="unpaid">UnPaid</p><br>
+              <p class="paid">Done</p><br>
+              <p class="paid">Done</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button><br><br><button>View</button> <button>Update</button>
+              <button>Delete</button><br><br><button>View</button> <button>Update</button> <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0008</td>
+            <td>B.D. Ekanayake</td>
+            <td>Geography Grade 8 Hall Class (English)</td>
+            <td>P.T.Samarakoon</td>
+            <td>
+              <p class="paid">Done</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button></td>
+          </tr>
+
+          <tr>
+            <td>0009</td>
+            <td>Y.L. Rathnayaka</td>
+            <td>Science Grade 8 Hall Class (English)<br><br>Maths Grade 8 Hall Class (English)</td>
+            <td>M.R.Kasun Hewage<br><br>N.R.N.L. Bandara</td>
+            <td>
+              <p class="unpaid">UnPaid</p><br>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0010</td>
+            <td>J.M. Amarasinghe</td>
+            <td>English Grade 8 Hall Class (Sinhala)<br><br>History Grade 8 Hall Class (Sinhala)</td>
+            <td>T.M.Jayawardena<br><br>S.M.Liyanage</td>
+            <td>
+              <p class="paid">Done</p><br>
+              <p class="unpaid">UnPaid</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button><br><br><button>View</button>
+              <button>Update</button> <button>Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>0011</td>
+            <td>D.S. Alwis</td>
+            <td>History Grade 8 Hall Class (Sinhala)</td>
+            <td>S.M.Liyanage</td>
+            <td>
+              <p class="paid">Done</p>
+            </td>
+            <td><button>View</button> <button>Update</button> <button>Delete</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <!--Removed Chart-->
+
+      <!--
+      <section class="chart-section">
+        <h2>Monthly Attendance Overview</h2>
+        <canvas id="attendanceChart" width="300" height="50"></canvas>
+
+      </section>
+
+      <script>
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+              label: 'Students Present',
+              data: [120, 135, 140, 150, 130, 160, 170, 165, 155, 145, 138, 128],
+              backgroundColor: 'rgba(54, 162, 235, 0.7)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+              borderRadius: 5
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 20
+                }
+              }
+            }
+          }
+        });
+      </script>
+
+      -->
+
+      <br>
+      <br>
+      <br>
+
+    </main>
+  </div>
+</body>
+
+</html>

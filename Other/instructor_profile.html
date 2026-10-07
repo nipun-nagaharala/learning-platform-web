@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amith Pussella - Instructor Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 50px;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .profile-subjects {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #059669;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .profile-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+                gap: 30px;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 290px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .profile-subjects {
+                font-size: 0.9rem;
+            }
+
+            .profile-description {
+                font-size: 1rem;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-content {
+                padding: 25px 20px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 240px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-content">
+            <div class="profile-image-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='350' viewBox='0 0 300 350'%3E%3Crect width='300' height='350' fill='%23e2e8f0'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial, sans-serif' font-size='16' fill='%23718096' text-anchor='middle'%3EInstructor Photo%3C/text%3E%3Ctext x='50%25' y='55%25' font-family='Arial, sans-serif' font-size='14' fill='%23a0aec0' text-anchor='middle'%3EAmith Pussella%3C/text%3E%3C/svg%3E" alt="Amith Pussella - Physics and Chemistry Instructor" class="profile-image">
+            </div>
+            
+            <div class="profile-info">
+                <h1 class="profile-name">Amith Pussella</h1>
+                <p class="profile-subjects">A/L Physics / A/L Chemistry</p>
+                <p class="profile-description">
+                    Currently, he has earned the reputation of being the most senior high level physics teacher in Sri Lanka, and for more than 20 years, he has had the privilege of being the teacher who has been able to grant university degrees to the largest number of students in the island in the field of physics.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

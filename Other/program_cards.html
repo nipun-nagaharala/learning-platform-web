@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Programs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .classcard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .classcard-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .classcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .classcard-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .classcard-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .classcard-header {
+            padding: 24px 24px 16px;
+        }
+
+        .classcard-program-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .classcard-instructor {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .classcard-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .classcard-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .classcard-badge-live {
+            background-color: #fee;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .classcard-badge-physical {
+            background-color: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+        }
+
+        .classcard-badge-revision {
+            background-color: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .classcard-badge-theory {
+            background-color: #f0f9ff;
+            color: #0284c7;
+            border: 1px solid #bae6fd;
+        }
+
+        .classcard-type {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .classcard-footer {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 24px;
+        }
+
+        .classcard-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .classcard-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .classcard-price-small {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .classcard-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .classcard-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .classcard-icon-calendar::before {
+            content: "📅";
+            margin-right: 4px;
+        }
+
+        .classcard-arrow::after {
+            content: "→";
+        }
+    </style>
+</head>
+<body>
+    <div class="classcard-container">
+        <h1 class="classcard-title">Available Programs</h1>
+        
+        <div class="classcard-grid">
+            <!-- Card 1 -->
+            <div class="classcard-item">
+                <div class="classcard-header">
+                    <h3 class="classcard-program-title">2025 RPI PHYSICS| AMITH PUSSELLA| ONLINE</h3>
+                    <p class="classcard-instructor">Amith Pussella</p>
+                    
+                    <div class="classcard-badges">
+                        <span class="classcard-badge classcard-badge-live">🔴 LIVE</span>
+                        <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                    </div>
+                    
+                    <p class="classcard-type">RECORDING AND ZOOM CLASS</p>
+                </div>
+                
+                <div class="classcard-footer">
+                    <div class="classcard-date">
+                        <span class="classcard-icon-calendar"></span>
+                        01:01:2025 - 27:12:2025
+                    </div>
+                    <div class="classcard-price">Rs 5,200.00 <span class="classcard-price-small">Per month</span></div>
+                    <a href="#" class="classcard-button">
+                        Learn More <span class="classcard-arrow"></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="classcard-item">
+                <div class="classcard-header">
+                    <h3 class="classcard-program-title">2025 TRP| PHYSICS| AMITH PUSSELLA| PHYSICAL</h3>
+                    <p class="classcard-instructor">Amith Pussella</p>
+                    
+                    <div class="classcard-badges">
+                        <span class="classcard-badge classcard-badge-physical">👥 PHYSICAL</span>
+                        <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                    </div>
+                    
+                    <p class="classcard-type">PHYSICAL ONLY</p>
+                </div>
+                
+                <div class="classcard-footer">
+                    <div class="classcard-date">
+                        <span class="classcard-icon-calendar"></span>
+                        01:01:2025 - 29:11:2025
+                    </div>
+                    <div class="classcard-price">Rs 6,000.00 <span class="classcard-price-small">Per month</span></div>
+                    <a href="#" class="classcard-button">
+                        Learn More <span class="classcard-arrow"></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="classcard-item">
+                <div class="classcard-header">
+                    <h3 class="classcard-program-title">2025 TRP| PHYSICS| AMITH PUSSELLA| ONLINE</h3>
+                    <p class="classcard-instructor">Amith Pussella</p>
+                    
+                    <div class="classcard-badges">
+                        <span class="classcard-badge classcard-badge-live">🔴 LIVE</span>
+                        <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                    </div>
+                    
+                    <p class="classcard-type">RECORDING AND ZOOM CLASS</p>
+                </div>
+                
+                <div class="classcard-footer">
+                    <div class="classcard-date">
+                        <span class="classcard-icon-calendar"></span>
+                        01:01:2025 - 29:11:2025
+                    </div>
+                    <div class="classcard-price">Rs 6,200.00 <span class="classcard-price-small">Per month</span></div>
+                    <a href="#" class="classcard-button">
+                        Learn More <span class="classcard-arrow"></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="classcard-item">
+                <div class="classcard-header">
+                    <h3 class="classcard-program-title">2027 A/L| PHYSICS| AMITH PUSSELLA| PHYSICAL ONLY</h3>
+                    <p class="classcard-instructor">Amith Pussella</p>
+                    
+                    <div class="classcard-badges">
+                        <span class="classcard-badge classcard-badge-physical">👥 PHYSICAL</span>
+                        <span class="classcard-badge classcard-badge-theory">THEORY</span>
+                    </div>
+                    
+                    <p class="classcard-type">PHYSICAL ONLY</p>
+                </div>
+                
+                <div class="classcard-footer">
+                    <div class="classcard-date">
+                        <span class="classcard-icon-calendar"></span>
+                        02:04:2025 - 25:06:2025
+                    </div>
+                    <div class="classcard-price">Rs 3,500.00 <span class="classcard-price-small">Per month</span></div>
+                    <a href="#" class="classcard-button">
+                        Learn More <span class="classcard-arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

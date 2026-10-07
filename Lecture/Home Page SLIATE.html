@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Navigation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .top-nav {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .bottom-nav {
+            background-color: #0e3359;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .logo {
+            max-height: 60px;
+            margin-right: 10px;
+        }
+
+        .university-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Custom dropdown for blue nav */
+        .bottom-nav .dropdown-menu {
+            background-color: #0c3f71;
+            border: none;
+        }
+
+        .bottom-nav .dropdown-menu a {
+            color: white !important;
+        }
+
+        .bottom-nav .dropdown-menu a:hover {
+            background-color: #103962;
+        }
+
+        /* Ensure dropdown arrow is white */
+        .bottom-nav .dropdown-toggle::after {
+            border-top-color: white;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+        }
+
+
+        /* gallery starts here*/
+        .fullgallery {
+            margin: 10px;
+            margin-top: 80px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 80px;
+
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .image {
+            position: relative;
+            width: 140px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            /* Center vertically */
+            left: 50%;
+            /* Center horizontally */
+            transform: translate(-50%, -50%);
+            /* Perfect centering */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+        }
+
+        /* Default images for larger screens */
+        .image1 {
+            background-image: url('../assets/large-image1.png');
+            border-radius: 10px;
+        }
+
+        .image2 {
+            background-image: url('../assets/large-image2.png');
+            border-radius: 10px;
+        }
+
+        .image3 {
+            background-image: url('../assets/large-image3.png');
+            border-radius: 10px;
+        }
+
+        .image4 {
+            background-image: url('../assets/large-image4.png');
+            border-radius: 10px;
+        }
+
+        .image5 {
+            background-image: url('../assets/large-image5.png');
+            border-radius: 10px;
+        }
+
+        .image6 {
+            background-image: url('../assets/large-image6.png');
+            border-radius: 10px;
+        }
+
+        .image7 {
+            background-image: url('../assets/large-image7.png');
+            border-radius: 10px;
+        }
+
+        .image8 {
+            background-image: url('../assets/large-image8.png');
+            border-radius: 10px;
+        }
+
+
+
+        /* Images for tiny/mobile screens */
+        @media(max-width:600px) {
+            .gallery {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image1 {
+                background-image: url('../assets/tiny-image1.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+
+            }
+
+            .image2 {
+                background-image: url('../assets/tiny-image2.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image3 {
+                background-image: url('../assets/tiny-image3.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image4 {
+                background-image: url('../assets/tiny-image4.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image5 {
+                background-image: url('../assets/tiny-image5.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image6 {
+                background-image: url('../assets/tiny-image6.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image7 {
+                background-image: url('../assets/tiny-image7.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image8 {
+                background-image: url('../assets/tiny-image8.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+        }
+
+        /* Images for smaller tablet screens */
+        @media(min-width: 601px) and (max-width: 800px) {
+            .gallery {
+                flex-wrap: wrap;
+            }
+
+            .image1 {
+                background-image: url('../assets/small-image1.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image2 {
+                background-image: url('../assets/small-image2.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image3 {
+                background-image: url('../assets/small-image3.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image4 {
+                background-image: url('../assets/small-image4.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image5 {
+                background-image: url('../assets/small-image5.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image6 {
+                background-image: url('../assets/small-image6.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image7 {
+                background-image: url('../assets/small-image7.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image8 {
+                background-image: url('../assets/small-image8.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .text {
+                text-align: top;
+            }
+        }
+
+
+        /* gallery starts here*/
+        .fullgallery {
+            margin: 10px;
+            margin-top: 80px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 80px;
+
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .image {
+            position: relative;
+            width: 140px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            /* Center vertically */
+            left: 50%;
+            /* Center horizontally */
+            transform: translate(-50%, -50%);
+            /* Perfect centering */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+        }
+
+        /* Default images for larger screens */
+        .image1 {
+            background-image: url('../assets/biology.webp');
+            border-radius: 10px;
+        }
+
+        .image2 {
+            background-image: url('../assets/mathematics_image.jpg');
+            border-radius: 10px;
+        }
+
+        .image3 {
+            background-image: url('../assets/commerce.jpg');
+            border-radius: 10px;
+        }
+
+        .image4 {
+            background-image: url('../assets/japanese.jpg');
+            border-radius: 10px;
+        }
+
+        .image5 {
+            background-image: url('../assets/history.jpg');
+            border-radius: 10px;
+        }
+
+        .image6 {
+            background-image: url('../assets/english.jpg');
+            border-radius: 10px;
+        }
+
+        .image7 {
+            background-image: url('../assets/physcs.webp');
+            border-radius: 10px;
+        }
+
+        .image8 {
+            background-image: url('../assets/chemical.webp');
+            border-radius: 10px;
+        }
+
+        .image9 {
+            background-image: url('../assets/ict.png');
+            border-radius: 10px;
+        }
+
+        .image10 {
+            background-image: url('../assets/sinhala.jpg');
+            border-radius: 10px;
+        }
+
+
+
+        /* Images for tiny/mobile screens */
+        @media(max-width:600px) {
+            .gallery {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image1 {
+                background-image: url('../assets/biology.webp');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+
+            }
+
+            .image2 {
+                background-image: url('../assets/mathematics_image.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image3 {
+                background-image: url('../assets/commerce.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image4 {
+                background-image: url('../assets/japanese.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image5 {
+                background-image: url('../assets/history.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image6 {
+                background-image: url('../assets/english.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image7 {
+                background-image: url('../assets/physcs.webp');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image8 {
+                background-image: url('../assets/chemical.webp');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image9 {
+                background-image: url('../assets/ict.png');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+
+            .image10 {
+                background-image: url('../assets/sinhala.jpg');
+                width: 360px;
+                height: 100px;
+                border-radius: 7px;
+            }
+        }
+
+        /* Images for smaller tablet screens */
+        @media(min-width: 601px) and (max-width: 800px) {
+            .gallery {
+                flex-wrap: wrap;
+            }
+
+            .image1 {
+                background-image: url('../assets/biology.webp');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image2 {
+                background-image: url('../assets/mathematics_image.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image3 {
+                background-image: url('../assets/commerce.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image4 {
+                background-image: url('../assets/japanese.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image5 {
+                background-image: url('../assets/history.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image6 {
+                background-image: url('../assets/english.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image7 {
+                background-image: url('../assets/physcs.webp');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image8 {
+                background-image: url('../assets/chemical.webp');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image9 {
+                background-image: url('../assets/ict.png');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .image10 {
+                background-image: url('../assets/sinhala.jpg');
+                width: 230px;
+                height: 100px;
+                border-radius: 7px;
+                box-sizing: border-box;
+            }
+
+            .text {
+                text-align: top;
+            }
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .gallery {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .gallery-item.tall,
+            .gallery-item.wide {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+
+        /* Blog Section */
+        .blog-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #ececec;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #7d889c;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .recent-posts-title {
+            font-size: 36px;
+            color: #333;
+            margin: 10px 0 40px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* Posts Container */
+        .posts-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: hidden;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+            justify-content: center;
+            /* Default layout for larger screens */
+            flex-wrap: nowrap;
+            /* Ensures cards stay side-by-side */
+        }
+
+        .posts-container>.post {
+            scroll-snap-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .posts-container>.post:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Post Card */
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 20px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        .post-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .day {
+            font-size: 36px;
+            font-weight: bold;
+            color: #cf7b2b;
+        }
+
+        .month-year {
+            font-size: 14px;
+            color: #7d889c;
+            text-transform: uppercase;
+        }
+
+        .post-title {
+            font-size: 18px;
+            color: #333;
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+
+        .post-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Add subtle shadow when scrolling */
+        .posts-container:active {
+            box-shadow: inset 0px -2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Query for Screens Below 800px */
+        @media (max-width: 1500px) {
+            .posts-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                /* Align items to the start for scrolling */
+                padding-bottom: 10px;
+            }
+
+            .posts-container::-webkit-scrollbar {
+                height: 6px;
+                /* Small scrollbar for cleaner look */
+            }
+
+            .posts-container::-webkit-scrollbar-thumb {
+                background-color: #ccc;
+                border-radius: 10px;
+            }
+
+            .posts-container::-webkit-scrollbar-track {
+                background: #f9f9f9;
+            }
+
+            .post {
+                flex: 0 0 auto;
+                /* Ensure cards maintain their width and aspect ratio */
+            }
+        }
+
+        /* card full*/
+        /* Overall Section Styling */
+        .wellness-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #d3c4a1;
+            /* Beige background */
+            padding: 50px 20px;
+        }
+
+        /* Wrapper for Content */
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            gap: 40px;
+        }
+
+        /* Image Container */
+        .image-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .wellness-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Optional Dotted Pattern (like in the background) */
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, transparent 50%, #fff 50%);
+            background-size: 10px 10px;
+            z-index: -1;
+        }
+
+        /* Text Container */
+        .text-container {
+            flex: 1;
+            text-align: left;
+        }
+
+        .title {
+            font-size: 36px;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #f8f8f8;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Call-to-Action Button */
+        .cta-button {
+            background-color: #4f5c76;
+            /* Blue button color */
+            color: #ffffff;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3c495e;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        /* footer.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            background-color: #002855;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-nav ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-map iframe {
+            border-radius: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #1c2471;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-nav,
+            .footer-contact,
+            .footer-map {
+                width: 100%;
+            }
+        }
+
+        /* Slider Section */
+        .X-slider {
+            position: relative;
+            width: 100%;
+            height: auto;
+            /* Default height for large screens */
+            /*600px;*/
+            overflow: hidden;
+            margin: 0;
+            /* Remove gaps */
+        }
+
+        .X-slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            /* Smooth transition */
+        }
+
+        .X-slide {
+            min-width: 100%;
+            height: 100%;
+            /* Match the height of the parent container */
+            object-fit: cover;
+            /* Ensures image covers the full area */
+        }
+
+        .X-slider button {
+            position: absolute;
+            top: 50%;
+            /* Align vertically in the center */
+            transform: translateY(-50%);
+            font-size: 2rem;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 10px;
+            /* Rounded corners */
+            transition: background 0.3s ease;
+        }
+
+        .X-prev {
+            left: 10px;
+            /* Position for large screens */
+        }
+
+        .X-next {
+            right: 10px;
+            /* Position for large screens */
+        }
+
+        .X-slider button:hover {
+            background: rgba(255, 255, 255, 0.7);
+            color: black;
+        }
+
+        .X-slide {
+            animation: X-fade 1s ease-in-out;
+        }
+
+        @keyframes X-fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .X-slider {
+                height: 400px;
+                /* Reduce height for smaller screens */
+            }
+
+            .X-slider button {
+                position: absolute;
+                top: 50%;
+                /* Align vertically in the center */
+                transform: translateY(-50%);
+                font-size: 2rem;
+                padding: 10px 20px;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                cursor: pointer;
+                z-index: 10;
+                border-radius: 10px;
+                /* Rounded corners */
+                transition: background 0.3s ease;
+            }
+
+            .X-prev {
+                left: 5px;
+                /* Center button horizontally */
+                transform: translate(50%, 150%);
+                /* Move slightly left from center */
+            }
+
+            .X-next {
+                right: 5px;
+                /* Center button horizontally */
+                transform: translate(150%, -50%);
+                /* Move slightly right from center */
+            }
+
+            .X-slide {
+                height: 100%;
+                /* Ensure slide matches the container height */
+            }
+        }
+
+        .X-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 10%;
+            color: white;
+            z-index: 10;
+            flex-wrap: wrap;
+
+            box-sizing: border-box;
+        }
+
+        .X-hero-text {
+            max-width: 600px;
+            color: white;
+            z-index: 11;
+        }
+
+        .X-hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .X-hero-text .highlight {
+            color: #ff3c3c;
+            font-weight: bold;
+        }
+
+        .X-hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .X-find-course {
+            padding: 14px 28px;
+            background-color: #00b2ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .X-find-course:hover {
+            background-color: #0090cc;
+        }
+
+        .X-hero-images {
+            display: flex;
+            gap: 20px;
+            z-index: 11;
+            border-radius: 50%;
+        }
+
+        .X-img {
+            width: 200px;
+            height: auto;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .X-hero-overlay {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .X-hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .X-hero-text p {
+                font-size: 1rem;
+            }
+
+            .X-img {
+                width: 150px;
+            }
+        }
+
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #342e91;
+            /* or use your desired blue */
+            padding: 60px 10%;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text .highlight {
+            color: #f44336;
+            /* red for "Creative Power" */
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 14px 24px;
+            background-color: #00b2ff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #0099dd;
+        }
+
+        .hero-images {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-img {
+            width: 200px;
+            height: auto;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-images {
+                justify-content: center;
+            }
+        }
+
+
+        /* Hero Section */
+        .slt-hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #333;
+            background-image:
+                linear-gradient(to bottom,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(255, 255, 255, 1) 100%),
+                url('../assets/aboutus.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+        }
+
+        /* Content Container */
+        .slt-content {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            /* Slightly opaque white for better readability */
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Heading */
+        .slt-heading {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph */
+        .slt-paragraph {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons Container */
+        .slt-buttons {
+            margin-top: 20px;
+        }
+
+        /* Button Styles */
+        .slt-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #0056b3;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .slt-btn-outline {
+            background-color: transparent;
+            color: #0056b3;
+            border: 2px solid #0056b3;
+        }
+
+        .slt-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .slt-content {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .slt-heading {
+                font-size: 2rem;
+            }
+
+            .slt-paragraph {
+                font-size: 0.9rem;
+            }
+
+            .slt-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slt-heading {
+                font-size: 1.8rem;
+            }
+
+            .slt-paragraph {
+                font-size: 0.8rem;
+            }
+
+            .slt-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* News Section */
+        .latest-news {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .latest-news h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+            /* Shadow */
+            border-radius: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+        }
+
+        .news-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 300px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+        }
+
+        .news-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .news-card .date {
+            font-size: 14px;
+            color: #888;
+            margin: 10px 0 0;
+        }
+
+        .news-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .news-card .summary {
+            font-size: 14px;
+            color: #555;
+            padding: 0 10px;
+        }
+
+        .news-card .read-more {
+            margin: 10px 0;
+            padding: 10px;
+            background: #06305e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0px;
+            font-size: 14px;
+        }
+
+        .news-card .read-more:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .news-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .news-card {
+                width: 90%;
+            }
+        }
+
+
+        /*Tutor Card Area*/
+
+
+        .wrapper {
+            padding: 10px 10%;
+        }
+
+        #card-area {
+            padding: 50px 0;
+        }
+
+        #card-area h2 {
+            text-align: center;
+            font-family: Oswald, sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .box-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .box {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(transparent, #1c1c1c 58%);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .overlay h3 {
+            font-weight: 500;
+            margin-bottom: 5px;
+            margin-top: 80%;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .overlay p {
+            color: #fff;
+        }
+
+        .overlay a {
+            margin-top: 10px;
+            color: #262626;
+            text-decoration: none;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 50px;
+            text-align: center;
+            padding: 5px 15px;
+        }
+
+        .box:hover img {
+            transform: scale(1.1);
+        }
+
+        .box:hover .overlay {
+            height: 100%;
+        }
+
+        /*tutor cards ends here*/
+
+        .classcard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .classcard-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .classcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .classcard-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .classcard-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .classcard-header {
+            padding: 24px 24px 16px;
+        }
+
+        .classcard-program-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .classcard-instructor {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .classcard-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .classcard-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .classcard-badge-live {
+            background-color: #fee;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .classcard-badge-physical {
+            background-color: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+        }
+
+        .classcard-badge-revision {
+            background-color: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .classcard-badge-theory {
+            background-color: #f0f9ff;
+            color: #0284c7;
+            border: 1px solid #bae6fd;
+        }
+
+        .classcard-type {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .classcard-footer {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 24px;
+        }
+
+        .classcard-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .classcard-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .classcard-price-small {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .classcard-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .classcard-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .classcard-icon-calendar::before {
+            content: "📅";
+            margin-right: 4px;
+        }
+
+        .classcard-arrow::after {
+            content: "→";
+        }
+
+
+        /** amith pussella card**/
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 50px;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .profile-subjects {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #059669;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .profile-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+                gap: 30px;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 290px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .profile-subjects {
+                font-size: 0.9rem;
+            }
+
+            .profile-description {
+                font-size: 1rem;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-content {
+                padding: 25px 20px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 240px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light top-nav">
+        <div class="container-fluid">
+            <!-- Logo and University Name (Left-aligned) -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../assets/Logo.png" alt="University Logo" class="logo">
+                <span class="university-name"></span>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent"
+                aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="mainNavbarContent">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Lecture/logout.html">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">LMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Staff</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bottom-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand d-lg-none" href="#">Home</a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bottomNavbarContent"
+                aria-controls="bottomNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="bottomNavbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+
+                    <!-- Dropdown for courses -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="campusDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Subjects
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="campusDropdown">
+                            <li><a class="dropdown-item" href="#">Biology</a></li>
+                            <li><a class="dropdown-item" href="#">Mathematics</a></li>
+                            <li><a class="dropdown-item" href="#">Commerce</a></li>
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Japan</a></li>
+                            <li><a class="dropdown-item" href="#">History</a></li>
+                            <li><a class="dropdown-item" href="#">Physics</a></li>
+                            <li><a class="dropdown-item" href="#">Chemistry</a></li>
+                            <li><a class="dropdown-item" href="#">ICT</a></li>
+                            <li><a class="dropdown-item" href="#">Sinhala</a></li>
+
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown for Apply -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="applyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Tutors
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="applyDropdown">
+
+                            <li><a class="dropdown-item" href="#">Mahen Jacob</a></li>
+                            <li><a class="dropdown-item" href="#">Dinesh Muthugala</a></li>
+                            <li><a class="dropdown-item" href="#">Kashika Rathnayeake</a></li>
+                            <li><a class="dropdown-item" href="#">Chamari Gamage</a></li>
+                            <li><a class="dropdown-item" href="#">Charitha Athulage</a></li>
+                            <li><a class="dropdown-item" href="#">Kelum Senanayake</a></li>
+                            <li><a class="dropdown-item" href="#">Mahesh Senanayake</a></li>
+                            <li><a class="dropdown-item" href="#">Dasun Gunarathne</a></li>
+                            <li><a class="dropdown-item" href="#">Augestine Robinson</a></li>
+
+                        </ul>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap JS and Popper.js (required for responsive toggler) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+
+
+    </head>
+
+    <body>
+
+
+        <br>
+        <div class="profile-container">
+            <div class="profile-content">
+                <div class="profile-image-container">
+                    <img src="../assets/Amith Pussella.jpg" alt="Amith Pussella - Physics and Chemistry Instructor"
+                        class="profile-image">
+                </div>
+
+                <div class="profile-info">
+                    <h1 class="profile-name">Amith Pussella</h1>
+                    <p class="profile-subjects">A/L Physics / A/L Chemistry</p>
+                    <p class="profile-description">
+                        Currently, he has earned the reputation of being the most senior high level physics teacher in
+                        Sri Lanka, and for more than 20 years, he has had the privilege of being the teacher who has
+                        been able to grant university degrees to the largest number of students in the island in the
+                        field of physics.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--Tutor sccription ends here-->
+        <br>
+        <div class="classcard-container">
+            <h1 class="classcard-title">Available Programs</h1>
+
+            <div class="classcard-grid">
+                <!-- Card 1 -->
+                <div class="classcard-item">
+                    <div class="classcard-header">
+                        <h3 class="classcard-program-title">2025 RPI PHYSICS| AMITH PUSSELLA| ONLINE</h3>
+                        <p class="classcard-instructor">Amith Pussella</p>
+
+                        <div class="classcard-badges">
+                            <span class="classcard-badge classcard-badge-live">🔴 LIVE</span>
+                            <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                        </div>
+
+                        <p class="classcard-type">RECORDING AND ZOOM CLASS</p>
+                    </div>
+
+                    <div class="classcard-footer">
+                        <div class="classcard-date">
+                            <span class="classcard-icon-calendar"></span>
+                            01:01:2025 - 27:12:2025
+                        </div>
+                        <div class="classcard-price">Rs 5,200.00 <span class="classcard-price-small">Per month</span>
+                        </div>
+                        <a href="#" class="classcard-button">
+                            ADD to Cart <span class="classcard-arrow"></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="classcard-item">
+                    <div class="classcard-header">
+                        <h3 class="classcard-program-title">2025 TRP| PHYSICS| AMITH PUSSELLA| PHYSICAL</h3>
+                        <p class="classcard-instructor">Amith Pussella</p>
+
+                        <div class="classcard-badges">
+                            <span class="classcard-badge classcard-badge-physical">👥 PHYSICAL</span>
+                            <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                        </div>
+
+                        <p class="classcard-type">PHYSICAL ONLY</p>
+                    </div>
+
+                    <div class="classcard-footer">
+                        <div class="classcard-date">
+                            <span class="classcard-icon-calendar"></span>
+                            01:01:2025 - 29:11:2025
+                        </div>
+                        <div class="classcard-price">Rs 6,000.00 <span class="classcard-price-small">Per month</span>
+                        </div>
+                        <a href="#" class="classcard-button">
+                            ADD to Cart <span class="classcard-arrow"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="classcard-item">
+                    <div class="classcard-header">
+                        <h3 class="classcard-program-title">2025 TRP| PHYSICS| AMITH PUSSELLA| ONLINE</h3>
+                        <p class="classcard-instructor">Amith Pussella</p>
+
+                        <div class="classcard-badges">
+                            <span class="classcard-badge classcard-badge-live">🔴 LIVE</span>
+                            <span class="classcard-badge classcard-badge-revision">REVISION</span>
+                        </div>
+
+                        <p class="classcard-type">RECORDING AND ZOOM CLASS</p>
+                    </div>
+
+                    <div class="classcard-footer">
+                        <div class="classcard-date">
+                            <span class="classcard-icon-calendar"></span>
+                            01:01:2025 - 29:11:2025
+                        </div>
+                        <div class="classcard-price">Rs 6,200.00 <span class="classcard-price-small">Per month</span>
+                        </div>
+                        <a href="#" class="classcard-button">
+                            ADD to Cart <span class="classcard-arrow"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="classcard-item">
+                    <div class="classcard-header">
+                        <h3 class="classcard-program-title">2027 A/L| PHYSICS| AMITH PUSSELLA| PHYSICAL ONLY</h3>
+                        <p class="classcard-instructor">Amith Pussella</p>
+
+                        <div class="classcard-badges">
+                            <span class="classcard-badge classcard-badge-physical">👥 PHYSICAL</span>
+                            <span class="classcard-badge classcard-badge-theory">THEORY</span>
+                        </div>
+
+                        <p class="classcard-type">PHYSICAL ONLY</p>
+                    </div>
+
+                    <div class="classcard-footer">
+                        <div class="classcard-date">
+                            <span class="classcard-icon-calendar"></span>
+                            02:04:2025 - 25:06:2025
+                        </div>
+                        <div class="classcard-price">Rs 3,500.00 <span class="classcard-price-small">Per month</span>
+                        </div>
+                        <a href="#" class="classcard-button">
+                            ADD to Cart <span class="classcard-arrow"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+
+
+<!--
+            <button class="X-prev" onclick="X_prevSlide()">&#10094;</button>
+            <button class="X-next" onclick="X_nextSlide()">&#10095;</button>
+            -->
+</div>
+<!--
+
+        <script>
+            const X_slides = document.querySelectorAll(".X-slide");
+        let X_slideIndex = 0;
+        let X_intervalId = null;
+        
+        // Initialize slider on DOM content load
+        document.addEventListener("DOMContentLoaded", X_initializeSlider);
+        
+        function X_initializeSlider() {
+            if (X_slides.length > 0) {
+                X_showSlide(X_slideIndex);
+                X_intervalId = setInterval(X_nextSlide, 5000); // Auto slide every 5 seconds
+            }
+        }
+        
+        function X_showSlide(index) {
+            X_slideIndex = (index + X_slides.length) % X_slides.length; // Ensure index loops
+            const offset = -X_slideIndex * 100; // Move slides horizontally
+            document.querySelector(".X-slides").style.transform = `translateX(${offset}%)`;
+        }
+        
+        function X_prevSlide() {
+            X_showSlide(--X_slideIndex);
+        }
+        
+        function X_nextSlide() {
+            X_showSlide(++X_slideIndex);
+        }
+        
+        </script>
+        -->
+
+<!-- Hero Section -->
+
+
+
+
+
+
+<br>
+<div id="card-area">
+    <h2>Other Tutors</h2>
+
+    <div class="wrapper">
+        <div class="box-area">
+            <div class="box">
+                <img alt="" src="../assets/Dinesh Muthugala.jpg">
+                <div class="overlay">
+                    <h3>Dinesh Muthugala</h3>
+                    <p>Biology</p><a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img alt="" src="../assets/Kelum Senanayake.jpg">
+                <div class="overlay">
+                    <h3>Kelum Senanayake</h3>
+                    <p>Chemistry</p><a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img alt="" src="../assets/unnamed.jpg">
+                <div class="overlay">
+                    <h3>Mahen Jacob</h3>
+                    <p>Physics</p><a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img alt="" src="../assets/kashika.png">
+                <div class="overlay">
+                    <h3>Kashika Rathnayake</h3>
+                    <p>Mathamatics</p><a href="#">Book Now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img alt="" src="../assets/Mahesh Senanayake.jpg">
+                <div class="overlay">
+                    <h3>Mahesh Senanayake</h3>
+                    <p>ICT</p><a href="#">Book Now</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!--
+                <section class="latest-news">
+            <h2>Latest News</h2>
+            <div class="news-container">
+                <div class="news-card">
+                    <img src="1.jpg" alt="News Image 1">
+                    <p class="date">03. December. 2024</p>
+                    <h3>Formalizing a Strong Partnership</h3>
+                    <p class="summary">SLIATE Convocation 2024 was held on the 12th November 2024 at the BMICH main hall
+                        displaying...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="news-card">
+                    <img src="2.jpg" alt="News Image 2">
+                    <p class="date">01. December. 2024</p>
+                    <h3>SLIATE Pirith 2024</h3>
+                    <p class="summary">SLIATE Convocation 2024 was held on the 12th November 2024 at the BMICH main hall
+                        displaying...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="news-card">
+                    <img src="3.jpg" alt="News Image 3">
+                    <p class="date">17. November. 2024</p>
+                    <h3>SLIATE Convocation 2024</h3>
+                    <p class="summary">SLIATE Convocation 2024 was held on the 12th November 2024 at the BMICH main hall
+                        displaying...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="news-card">
+                    <img src="4.jpg" alt="News Image 3">
+                    <p class="date">17. November. 2024</p>
+                    <h3>SLIATE Convocation 2024</h3>
+                    <p class="summary">SLIATE Convocation 2024 was held on the 12th November 2024 at the BMICH main hall
+                        displaying...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        -->
+
+
+<!--this is wipe up cards-->
+
+
+
+
+<!--
+  <div id="home-cards-container"></div>
+
+  <script>
+    fetch('home-cards.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('home-cards-container').innerHTML = data;
+      });
+  </script>
+
+  -->
+
+<section class="blog-section">
+    <h2 class="section-title">Latest Articles</h2>
+    <h3 class="recent-posts-title">Get News about Dinansa</h3>
+    <div class="posts-container">
+        <!-- Post 1 -->
+        <div class="post"><a href="Artical Template/artical.html" style="color: inherit; text-decoration: none;">
+                <img src="../assets/blog-1.jpg" alt="Yoga Practice" class="post-image">
+                <div class="post-content">
+                    <div class="post-date">
+                        <span class="day">23</span>
+                        <span class="month-year">2024 <br> November</span>
+                    </div>
+                    <h4 class="post-title">Prasanna Baddewithana - රසායන විද්‍යාව</h4>
+                    <p class="post-description">
+                        ප්‍රසන්න බද්දෙවිතාන( Prasanna Baddewithana ) සර්ගේ රසායන විද්‍යාව Online පන්ති දැන්
+                        ඔබට
+                        දිනන්සා උසස් අධ්‍යාපන ආයාතනය හරහා සිදු කරගැනීමට අවස්ථාව සලසා ඇත. (•පන්ති ගාස්තු
+                        ගෙවීම්
+                        •නිබන්ධන ලබා ගැනීම •ප්‍රශ්න පත්‍ර ලිවීම ) ආදී සියලුම පහසුකම් අප ආයතනය හරහා දැන්
+                        ලබාගත
+                        හැක.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <!-- Post 2 -->
+        <div class="post"><a href="Nutrition/4 Health Benefits of Eating Pomegranates/artical.html"
+                style="color: inherit; text-decoration: none;">
+                <img src="../assets/blog-2.jpg" alt="Desk Yoga" class="post-image">
+                <div class="post-content">
+                    <div class="post-date">
+                        <span class="day">21</span>
+                        <span class="month-year">2024 <br> November</span>
+                    </div>
+                    <h4 class="post-title">2025 අ.පො.ස සාමාන්‍ය පෙළ</h4>
+                    <p class="post-description">
+                        2025 අ.පො.ස සාමාන්‍ය පෙළ විභාගයට පෙනී සිටීමට නියමිත ඔබගේ දුවට පුතාට කිසිදු වාර
+                        විභාගයකට
+                        මුහුණ දීමට නොහැකි වූවානේද?? ඉතාමත් ඉක්මනින්ම එනම් මාස 3ක් වැනි කෙටි කාලයක් තුළ
+                        සියලුම
+                        විෂය නිර්දේශය ආවරණය වන අයුරින් පවත්වනු ලබන 11 ශ්‍රේණිය නිබන්ධන පන්තිය සැප්තැම්බර් මස
+                        24
+                        වන දින සිට ආරම්භ වේ.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <!-- Post 3 -->
+        <div class="post">
+            <img src="../assets/blog-3.jpg" alt="Outdoor Yoga" class="post-image">
+            <div class="post-content">
+                <div class="post-date">
+                    <span class="day">16</span>
+                    <span class="month-year">2024 <br> November</span>
+                </div>
+                <h4 class="post-title">සංගීතය ප්‍රායෝගික පරීක්ෂණ</h4>
+                <p class="post-description">
+                    පෙරදිග සංගීතය ප්‍රායෝගික පරීක්ෂණයට සාර්ථකව මුහුණ දෙන්න... (ගායනය/වාදනය)_ මෙවර 2024
+                    අ.පො.ස.
+                    සාමාන්‍ය පෙළ පෙරදිග සංගීතය විෂයේ ලිඛිත පරීක්ෂණයට සමගාමීව ඉදිරියේදී පැවැත්වීමට නියමිත
+                    ප්‍රායෝගික පරීක්ෂණයට විශිෂ්ඨ සාමාර්ථයක් බලාපොරොත්තු වන දරුවන්ටයි මේ සුවිශේෂී
+                    අවස්ථාව....!
+                    දින 10 ක් පුරා පැවැත්වෙන ප්‍රායෝගික පරීක්ෂණ වැඩමුළුව (ගායනය/වාදනය)
+                </p>
+            </div>
+        </div>
+        <!-- Post 4 -->
+        <div class="post">
+            <img src="../assets/Dushyantha-Madusanka-Commerce-819x1024.jpg" alt="Morning Routine" class="post-image">
+            <div class="post-content">
+                <div class="post-date">
+                    <span class="day">12</span>
+                    <span class="month-year">2025 <br> November</span>
+                </div>
+                <h4 class="post-title">Dushyantha Madusanka Commerce
+                </h4>
+                <p class="post-description">
+                    Saturday 1st July at 2.00 pm 🤘
+                    New classes are starting…💥
+                    (This is also a separate war)
+
+                    Grade 11 (Saturday) at 2:00 p.m
+                    [ Covers all lessons from 10th grade for 11th grade students ]
+                    The super revision class everyone was looking for.
+
+                    Grade 10 (Saturday) at 4:00 p.m
+
+                    👉 To all who come 👈
+
+                </p>
+            </div>
+        </div>
+        <!-- Post 5 -->
+        <div class="post"><a
+                href="Communicable Diseases/A Changing COVID-19 Virus Means Reliable Vaccine Information is Important to Audiencese/artical.html"
+                style="color: inherit; text-decoration: none;">
+                <img src="../assets/Aki-Japanese-Language-Academy-1024x1024.jpg" alt="Meditation Benefits" class="post-image">
+                <div class="post-content">
+                    <div class="post-date">
+                        <span class="day">21</span>
+                        <span class="month-year">2024 <br> November</span>
+                    </div>
+                    <h4 class="post-title">Japanese Language – Aki Japanese Language Academy</h4>
+                    <p class="post-description">
+                        F2025 ඔක්තෝම්බර් අධ්‍යයනය වාර සදහා නව පන්ති මෙම මස ආරම්බ වේ….🇯🇵🇯🇵
+                        සමාන්‍ය පෙළ හා උසස් පෙළ සදහා නිසැකවම ජපන් භාෂාවට A සමාර්ථයක් ලබා ගැනිමට දූ පුතුන්
+                        වෙනුවෙන් ආරම්භ වන පාඨමාලාව🎌❤️
+
+                        මාස තුනක් වැනි කෙටි කාලයකදී විභාගය සදහා ඔබව සූදානම් කිරීම🎌
+                        ✖️පංතියට සහභාගී වී මාසයක් ඇතුලත ජපන් කතාකිරීම අනිවාර්ය කිරීම🎌
+                    </p>
+                </div>
+        </div>
+    </div></a>
+</section>
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Navigation Section -->
+        <div class="footer-nav">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+
+
+                <li><a href="#">About SLIATE</a></li>
+                <li><a href="#">Staff</a></li>
+                <li><a href="#">Admission</a></li>
+
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+
+
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-contact">
+            <h3>Contact Details</h3>
+            <p>Kirapane Road Gampola</p>
+            <p><strong>Phone:</strong> <a href="tel:+94112413500">+94 71 848 4741</a></p>
+
+
+            <p><strong>Email:</strong> <a href="mailto:info@sliate.edu">
+                    info@dinansa.edu</a>,
+            </p>
+        </div>
+
+        <!-- Map Section -->
+        <div class="footer-map">
+            <h3>Location</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9018378463434!2d79.9562075!3d6.9147094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250f5561d1e7f%3A0xbda2c9c9c2f12c2e!2sCINEC%20Campus!5e0!3m2!1sen!2slk!4v1695815019058!5m2!1sen!2slk"
+                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="footer-bottom">
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+        <p>All Copyrights Reserved By Dinansa - © 2025</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+</body>
+
+</html>

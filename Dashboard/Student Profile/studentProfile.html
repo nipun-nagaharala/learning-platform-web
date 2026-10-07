@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Profile & Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+      width: 100%;
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #007bff;
+    }
+
+    .profile-name {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .profile-info {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .profile-info strong {
+      color: #007bff;
+    }
+
+    .subjects {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .subjects li {
+      margin-bottom: 5px;
+    }
+
+    #chart-container {
+      width: 300px;
+      height: 300px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+      border: 1px solid #eee;
+      padding: 10px;
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    .paid {
+      background-color: #c8e6c9;
+      padding: 5px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .unpaid {
+      background-color: #ffcdd2;
+      padding: 5px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 3px;
+      font-size: 0.85rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #chart-container {
+        width: 90%;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="profile-card">
+      <img src="../../assets/blog-1x.jpg" alt="Student Photo">
+      <div class="profile-name">Jane Doe</div>
+      <div class="profile-info">
+        <p><strong>Index No:</strong> 20251234</p>
+        <p><strong>Address:</strong> 123 School Lane, Cityville</p>
+        <p><strong>Subjects & Marks:</strong></p>
+        <ul class="subjects">
+          <li>Math: 85</li>
+          <li>Science: 90</li>
+          <li>History: 78</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="chart-container">
+      <canvas id="myRadarChart"></canvas>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:10%;">ID</th>
+        <th style="width:20%;">Name</th>
+        <th style="width:40%;">Classes</th>
+        <th style="width:20%;">Teacher</th>
+        <th style="width:10%;">Payment</th>
+        <th style="width:20%;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0001</td>
+        <td>S.K.L. Bandara</td>
+        <td>
+          Maths Grade 8 Hall Class (Sinhala)<br><br>
+          Science Grade 8 Hall Class (English)
+        </td>
+        <td>
+          M.R.Kasun Hewage<br><br>
+          M.R.Jaliya Kumara
+        </td>
+        <td>
+          <p class="paid">Done</p><br>
+          <p class="unpaid">UnPaid</p>
+        </td>
+        <td>
+          <button>Pay</button>
+          
+          <br><br>
+          <button>Pay</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const ctx = document.getElementById('myRadarChart').getContext('2d');
+
+    const data = {
+      labels: ['Math', 'Science', 'History', 'English'],
+      datasets: [
+        {
+          label: 'Marks',
+          data: [85, 90, 78, 0],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+        },
+        {
+          label: 'Attendance (%)',
+          data: [65, 80, 47, 72],
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          pointBackgroundColor: 'rgba(255, 206, 86, 1)',
+        }
+      ]
+    };
+
+    const config = {
+      type: 'radar',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            beginAtZero: true,
+            suggestedMax: 100
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top'
+          }
+        }
+      }
+    };
+
+    new Chart(ctx, config);
+  </script>
+</body>
+
+</html>

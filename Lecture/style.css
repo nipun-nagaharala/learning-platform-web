@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f6fa;
+}
+
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.login-container input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+p{
+  color: bisque;
+}
